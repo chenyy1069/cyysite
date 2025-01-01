@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello, this is Chen Yongyu</title>
+    <title>ChenYongyu's Page</title>
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -19,9 +20,39 @@
             font-size: 3rem;
             color: #007BFF;
         }
+        .contact-btn {
+            margin-top: 50px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-info {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
     </style>
 </head>
 <body>
-    <h1>Hello, this is Chen Yongyu</h1>
+    <h1>Hello, this is ChenYongyu's page</h1>
+    <button class="contact-btn" onclick="showContactInfo()">联系方式</button>
+    <div class="contact-info" id="contact-info">
+        <p>Email: 1@chenyy.cc</p>
+    </div>
+
+    <script>
+        function showContactInfo() {
+            var contactInfo = document.getElementById('contact-info');
+            if (contactInfo.style.display === 'none' || contactInfo.style.display === '') {
+                contactInfo.style.display = 'block';
+            } else {
+                contactInfo.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
