@@ -35,7 +35,7 @@ h1 {
 
 /* 联系信息显示区域 */
 .contact-info {
-    display: none;
+    display: none;  /* 初始时隐藏 */
     margin-top: 20px;
     font-size: 1.2rem;
 }
