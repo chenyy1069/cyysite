@@ -15,9 +15,10 @@ body {
 h1 {
     font-size: 3rem;
     color: #007BFF;
-    white-space: pre-wrap;  /* 保证文本换行 */
+    white-space: pre-wrap;  /* 确保文本换行 */
     word-wrap: break-word;  /* 自动换行 */
     max-width: 80%;  /* 限制最大宽度，防止文本超出 */
+    text-align: center;  /* 让文字居中 */
 }
 
 /* 按钮样式 */
