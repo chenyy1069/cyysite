@@ -18,25 +18,6 @@ h1 {
     visibility: hidden;  /* 初始时隐藏标题 */
 }
 
-/* 按钮样式 */
-.contact-btn {
-    margin-top: 50px;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    color: #fff;
-    background-color: #007BFF;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* 联系信息显示区域 */
-.contact-info {
-    display: none;
-    margin-top: 20px;
-    font-size: 1.2rem;
-}
-
 /* 打字机光标效果 */
 #title::after {
     content: '|';
@@ -54,4 +35,23 @@ h1 {
 /* 打字机效果完成后，标题变为可见 */
 .visible {
     visibility: visible;
+}
+
+/* 按钮样式 */
+.contact-btn {
+    margin-top: 50px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 联系信息显示区域 */
+.contact-info {
+    display: none;
+    margin-top: 20px;
+    font-size: 1.2rem;
 }
