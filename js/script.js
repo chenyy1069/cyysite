@@ -1,3 +1,4 @@
+// 定义要显示的文本
 const text = "Welcome to ChenYongyu's Page!";
 let index = 0;
 
@@ -14,14 +15,12 @@ function typeText() {
         index++;
         setTimeout(typeText, 100);  // 每100ms添加一个字符
     } else {
-        // 打字完成后显示标题（显示 class）
+        // 打字完成后显示标题
         titleElement.classList.add('visible');
-        console.log("Typing effect finished.");  // 打印调试信息
     }
 }
 
 // 页面加载完成后启动打字机效果
 window.onload = function () {
-    console.log("Starting typing effect...");  // 打印调试信息
     typeText();  // 启动打字效果
 };
