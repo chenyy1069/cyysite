@@ -1,38 +1,20 @@
-/* 页面基本样式 */
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f3f3f3;
-    color: #333;
+// 定义要显示的文本
+const text = "Welcome to ChenYongyu's Page!";
+let index = 0;
+
+// 获取标题元素
+const titleElement = document.getElementById('title');
+
+// 打字机效果函数
+function typeText() {
+    if (index < text.length) {
+        titleElement.textContent += text.charAt(index);  // 逐个字符添加到标题
+        index++;
+        setTimeout(typeText, 100);  // 每100ms添加一个字符
+    }
 }
 
-/* h1 标签样式 */
-h1 {
-    font-size: 3rem;
-    color: #007BFF;
-    white-space: nowrap;  /* 确保文本在同一行显示 */
-}
-
-/* 按钮样式 */
-.contact-btn {
-    margin-top: 50px;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    color: #fff;
-    background-color: #007BFF;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* 联系信息显示区域 */
-.contact-info {
-    display: none;
-    margin-top: 20px;
-    font-size: 1.2rem;
-}
+// 页面加载完成后启动打字机效果
+window.onload = function () {
+    setTimeout(typeText, 500);  // 延迟500ms开始打字机效果
+};
