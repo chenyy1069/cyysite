@@ -4,56 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChenYongyu's Page</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f3f3f3;
-            color: #333;
-        }
-        h1 {
-            font-size: 3rem;
-            color: #007BFF;
-        }
-        .contact-btn {
-            margin-top: 50px;
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            color: #fff;
-            background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .contact-info {
-            display: none;
-            margin-top: 20px;
-            font-size: 1.2rem;
-        }
-    </style>
+    
+    <!-- 引入 CSS 文件，路径指向 css 文件夹 -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <h1>Hello, this is ChenYongyu's page</h1>
-    <button class="contact-btn" onclick="showContactInfo()">Contact Info</button>
+    <button class="contact-btn" id="contact-btn">Show Contact Info</button>
     <div class="contact-info" id="contact-info">
         <p>Email: 1@chenyy.cc</p>
         <p>Telegram: @Chen_yy0609</p>
     </div>
 
-    <script>
-        function showContactInfo() {
-            var contactInfo = document.getElementById('contact-info');
-            if (contactInfo.style.display === 'none' || contactInfo.style.display === '') {
-                contactInfo.style.display = 'block';
-            } else {
-                contactInfo.style.display = 'none';
-            }
-        }
-    </script>
+    <!-- 引入 JS 文件，路径指向 js 文件夹 -->
+    <script src="js/script.js"></script>
 </body>
 </html>
