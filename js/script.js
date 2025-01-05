@@ -1,3 +1,19 @@
+// 获取元素
+const contactBtn = document.getElementById('contact-btn');
+const contactInfo = document.getElementById('contact-info');
+
+// 切换显示/隐藏联系信息
+contactBtn.onclick = function() {
+    if (contactInfo.style.display === 'none' || contactInfo.style.display === '') {
+        contactInfo.style.display = 'block';  // 显示联系信息
+    } else {
+        contactInfo.style.display = 'none';   // 隐藏联系信息
+    }
+};
+
+// 初始化时隐藏联系信息
+contactInfo.style.display = 'none';
+
 // 定义要显示的文本
 const text = "Welcome to ChenYongyu's Page!";
 let index = 0;
