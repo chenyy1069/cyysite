@@ -1,16 +1,12 @@
-document.getElementById('contact-btn').addEventListener('click', function () {
-    var contactInfo = document.getElementById('contact-info');
-    if (contactInfo.style.display === 'none' || contactInfo.style.display === '') {
-        contactInfo.style.display = 'block';
-        setTimeout(() => {
-            contactInfo.style.opacity = '1';
-        }, 10);
-        this.textContent = 'Hide Contact Info';
-    } else {
-        contactInfo.style.opacity = '0';
-        setTimeout(() => {
-            contactInfo.style.display = 'none';
-        }, 300);
-        this.textContent = 'Show Contact Info';
+const text = "Welcome to ChenYongyu's Page!";
+let index = 0;
+
+function typeText() {
+    if (index < text.length) {
+        document.getElementById('title').textContent += text.charAt(index);
+        index++;
+        setTimeout(typeText, 100);  // 打字速度
     }
-});
+}
+
+window.onload = typeText;
