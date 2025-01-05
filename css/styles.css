@@ -1,3 +1,4 @@
+/* 页面基本样式 */
 body {
     display: flex;
     flex-direction: column;
@@ -10,12 +11,14 @@ body {
     color: #333;
 }
 
+/* h1 标签样式 */
 h1 {
     font-size: 3rem;
     color: #007BFF;
     visibility: hidden;  /* 初始时隐藏标题 */
 }
 
+/* 按钮样式 */
 .contact-btn {
     margin-top: 50px;
     padding: 10px 20px;
@@ -27,6 +30,7 @@ h1 {
     cursor: pointer;
 }
 
+/* 联系信息显示区域 */
 .contact-info {
     display: none;
     margin-top: 20px;
@@ -47,7 +51,7 @@ h1 {
     }
 }
 
-/* 使标题可见 */
+/* 打字机效果完成后，标题变为可见 */
 .visible {
     visibility: visible;
 }
