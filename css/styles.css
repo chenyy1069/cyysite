@@ -15,10 +15,10 @@ body {
 h1 {
     font-size: 3rem;
     color: #007BFF;
-    white-space: pre-wrap;  /* 确保文本换行 */
-    word-wrap: break-word;  /* 自动换行 */
-    max-width: 80%;  /* 限制最大宽度，防止文本超出 */
-    text-align: center;  /* 让文字居中 */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 80%;
+    text-align: center;
 }
 
 /* 按钮样式 */
@@ -33,9 +33,17 @@ h1 {
     cursor: pointer;
 }
 
-/* 联系信息显示区域 */
+/* 联系信息样式 */
 .contact-info {
-    display: none;  /* 初始时隐藏 */
     margin-top: 20px;
     font-size: 1.2rem;
+    opacity: 0;  /* 初始透明 */
+    visibility: hidden;  /* 初始不可见 */
+    transition: opacity 0.5s ease, visibility 0.5s ease;  /* 渐变效果 */
+}
+
+/* 显示联系信息 */
+.contact-info.show {
+    opacity: 1;
+    visibility: visible;  /* 渐变后可见 */
 }
