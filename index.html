@@ -4,16 +4,258 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChenYongyu's Page</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* 页面基本样式 */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: palegoldenrod;
+            color: #333;
+        }
+
+        /* h1 标签样式 */
+        h1 {
+            font-size: 3rem;
+            color: #007BFF;
+            text-align: center;
+        }
+
+        /* 按钮样式 */
+        .contact-btn, .money-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* 联系信息 */
+        .contact-info {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .contact-info.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* 钱袋图标 */
+        .money-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: transparent;
+            font-size: 2rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        /* 支付页面 */
+        .payment-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .payment-options {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .payment-options button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* 绿色按钮 */
+        #show-payments {
+            font-size: 1.5rem;
+            background-color: green;
+            color: white;
+            padding: 15px 30px;
+        }
+
+        /* 返回按钮 */
+        .back-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1.2rem;
+            background: #fff;
+            color: black;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        /* 图片展示 */
+        .image-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 10px;
+        }
+
+        /* 关闭图片按钮 */
+        .close-image {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+            background: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        /* 加密货币信息 */
+        .cryptos-info {
+            display: none;
+            text-align: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <h1 id="title"></h1>
+
     <button class="contact-btn" id="contact-btn">Contact Info</button>
     <div class="contact-info" id="contact-info">
         <p>Email: 1@cii.im</p>
         <p>Telegram: @Chenyy1069</p>
     </div>
 
-    <script src="js/script.js"></script>
+    <button class="money-btn" id="money-btn">💰</button>
+
+    <div class="payment-page" id="payment-page">
+        <button class="back-btn" id="back-payment">Back</button>
+        <p>Wanna send me some money? SURE! 😁</p>
+        <button id="show-payments">💰Show payments💰</button>
+        <div class="payment-options" id="payment-options">
+            <button onclick="showPaymentImage('https://chenyy1069.github.io/image/alipay.jpg')">AliPay</button>
+            <button onclick="showPaymentImage('https://chenyy1069.github.io/image/wechatpay.jpg')">WechatPay</button>
+            <button id="cryptos-btn">Cryptos</button>
+        </div>
+        <div class="cryptos-info" id="cryptos-info">
+            <p>Bitcoins: Bc1quekrfj6mh76d8kgjmqtmh24ffa34ha5fsydjzy</p>
+            <p>Ethereum: 0x80AD0861b4c68dC9b9de0eB88A135e89CB08F974</p>
+            <p>Tron: TAxTAe8o4vh3CKxADTJtjDCDW5nJjbSEYs</p>
+        </div>
+    </div>
+
+    <div class="image-container" id="image-container">
+        <button class="close-image" id="close-image">X</button>
+        <img id="payment-img" src="" alt="Payment QR Code">
+    </div>
+
+    <script>
+        // Contact Info
+        const contactBtn = document.getElementById('contact-btn');
+        const contactInfo = document.getElementById('contact-info');
+
+        contactBtn.onclick = function () {
+            contactInfo.classList.toggle('show');
+        };
+
+        // 打字机效果
+        const text = "Welcome to ChenYongyu's Page!";
+        let index = 0;
+        const titleElement = document.getElementById('title');
+
+        function typeText() {
+            if (index < text.length) {
+                titleElement.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeText, 100);
+            }
+        }
+
+        window.onload = function () {
+            setTimeout(typeText, 500);
+        };
+
+        // 支付页面
+        const moneyBtn = document.getElementById('money-btn');
+        const paymentPage = document.getElementById('payment-page');
+        const backPayment = document.getElementById('back-payment');
+        const showPayments = document.getElementById('show-payments');
+        const paymentOptions = document.getElementById('payment-options');
+        const cryptosBtn = document.getElementById('cryptos-btn');
+        const cryptosInfo = document.getElementById('cryptos-info');
+
+        moneyBtn.onclick = function () {
+            paymentPage.style.display = 'flex';
+        };
+
+        backPayment.onclick = function () {
+            paymentPage.style.display = 'none';
+            paymentOptions.style.display = 'none';
+            cryptosInfo.style.display = 'none';
+        };
+
+        showPayments.onclick = function () {
+            paymentOptions.style.display = 'flex';
+        };
+
+        cryptosBtn.onclick = function () {
+            cryptosInfo.style.display = cryptosInfo.style.display === 'block' ? 'none' : 'block';
+        };
+
+        // 显示支付图片
+        const imageContainer = document.getElementById('image-container');
+        const paymentImg = document.getElementById('payment-img');
+        const closeImage = document.getElementById('close-image');
+
+        function showPaymentImage(url) {
+            paymentImg.src = url;
+            imageContainer.style.display = 'flex';
+        }
+
+        closeImage.onclick = function () {
+            imageContainer.style.display = 'none';
+        };
+    </script>
 </body>
 </html>
