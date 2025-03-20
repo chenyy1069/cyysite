@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Donation</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        .wallet {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            width: 300px;
+            justify-content: space-between;
+        }
+
+        .wallet input {
+            border: none;
+            outline: none;
+            width: 80%;
+            font-size: 1rem;
+            background: transparent;
+        }
+
+        .copy-btn {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .back-btn {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Crypto Donation</h1>
+
+    <div class="wallet">
+        <input type="text" value="1BitcoinAddressExample" id="btc-address" readonly>
+        <button class="copy-btn" onclick="copyText('btc-address')">Copy</button>
+    </div>
+
+    <div class="wallet">
+        <input type="text" value="0xEthereumAddressExample" id="eth-address" readonly>
+        <button class="copy-btn" onclick="copyText('eth-address')">Copy</button>
+    </div>
+
+    <button class="back-btn" onclick="goBack()">Back</button>
+
+    <script>
+        function copyText(elementId) {
+            var copyText = document.getElementById(elementId);
+            copyText.select();
+            document.execCommand("copy");
+            alert("Copied: " + copyText.value);
+        }
+
+        function goBack() {
+            window.close();
+        }
+    </script>
+
+</body>
+</html>
