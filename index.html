@@ -1,47 +1,62 @@
-<div class="container">
-  <h1 id="title"></h1>
-  <div class="button-group">
-    <button class="contact-btn" id="contact-btn">📬 Contact</button>
-    <button class="donate-btn" id="money-btn">💸 Donate</button>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chenyy1069's Site</title>
+    <!-- 导入CSS文件 -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="title"></h1>
+        <div class="button-group">
+            <button class="contact-btn" id="contact-btn">📬 Contact</button>
+            <button class="donate-btn" id="money-btn">💸 Donate</button>
+        </div>
+    </div>
 
-<!-- Contact Modal -->
-<div class="modal" id="contact-modal">
-  <div class="modal-content">
-    <span class="close-btn" id="close-contact">&times;</span>
-    <h2>Contact Info</h2>
-    <p>Email: 1@chenyy.cc</p>
-    <p>Telegram: @Chenyy1069</p>
-    <p>Facebook: @Chenyy1069</p>
-  </div>
-</div>
+    <!-- Contact Modal -->
+    <div class="modal" id="contact-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-contact">&times;</span>
+            <h2>Contact Info</h2>
+            <p>Email: 1@chenyy.cc</p>
+            <p>Telegram: @Chenyy1069</p>
+            <p>Facebook: @Chenyy1069</p>
+        </div>
+    </div>
 
-<!-- Cryptos Modal -->
-<div class="modal" id="cryptos-modal">
-  <div class="modal-content">
-    <span class="close-btn" id="close-cryptos">&times;</span>
-    <h2>Crypto Addresses</h2>
-    <p>Bitcoin: Bc1quekrfj6mh76d8kgjmqtmh24ffa34ha5fsydjzy</p>
-    <p>Ethereum: 0x80AD0861b4c68dC9b9de0eB88A135e89CB08F974</p>
-    <p>Tron: TAxTAe8o4vh3CKxADTJtjDCDW5nJjbSEYs</p>
-  </div>
-</div>
+    <!-- Cryptos Modal -->
+    <div class="modal" id="cryptos-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-cryptos">&times;</span>
+            <h2>Crypto Addresses</h2>
+            <p>Bitcoin: Bc1quekrfj6mh76d8kgjmqtmh24ffa34ha5fsydjzy</p>
+            <p>Ethereum: 0x80AD0861b4c68dC9b9de0eB88A135e89CB08F974</p>
+            <p>Tron: TAxTAe8o4vh3CKxADTJtjDCDW5nJjbSEYs</p>
+        </div>
+    </div>
 
-<!-- Donation Page -->
-<div class="payment-page" id="payment-page">
-  <button class="back-btn" id="back-payment">Back</button>
-  <p class="donate-text">Wanna donate some money to me? Sure! 😁</p>
-  <button id="showmethod" class="showmethod">Show Method</button>
-  <div class="payment-options" id="payment-options">
-    <button onclick="showPaymentImage('https://chenyy1069.github.io/image/alipay.jpg')">AliPay</button>
-    <button onclick="showPaymentImage('https://chenyy1069.github.io/image/wechatpay.jpg')">WechatPay</button>
-    <button id="cryptos-btn">Cryptos</button>
-  </div>
-</div>
+    <!-- Donation Page -->
+    <div class="payment-page" id="payment-page">
+        <button class="back-btn" id="back-payment">Back</button>
+        <p class="donate-text">Wanna donate some money to me? Sure! 😁</p>
+        <button id="showmethod" class="showmethod">Show Method</button>
+        <div class="payment-options" id="payment-options">
+            <button onclick="showPaymentImage('https://chenyy1069.github.io/image/alipay.jpg')">AliPay</button>
+            <button onclick="showPaymentImage('https://chenyy1069.github.io/image/wechatpay.jpg')">WechatPay</button>
+            <button id="cryptos-btn">Cryptos</button>
+        </div>
+    </div>
 
-<!-- Payment Image Popup -->
-<div class="image-container" id="image-container">
-  <button class="close-image" id="close-image">X</button>
-  <img id="payment-img" src="" alt="Payment QR Code" />
-</div>
+    <!-- Payment Image Popup -->
+    <div class="image-container" id="image-container">
+        <button class="close-image" id="close-image">X</button>
+        <img id="payment-img" src="" alt="Payment QR Code" />
+    </div>
+
+    <!-- 导入JavaScript文件（放在body底部） -->
+    <script src="js/script.js"></script>
+</body>
+</html>
