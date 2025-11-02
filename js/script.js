@@ -1,5 +1,5 @@
 // 打字效果
-const text = "你好哇张馨予😁!";
+const text = "Hi! Welcome to Chenyy's site!";
 let index = 0;
 const titleElement = document.getElementById("title");
 
